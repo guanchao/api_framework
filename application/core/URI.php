@@ -91,6 +91,17 @@ class CI_URI {
 	 */
 	protected $_permitted_uri_chars;
 
+	private function  uuid()
+    {
+        $chars = md5(uniqid(mt_rand(), true));
+        $uuid = substr ( $chars, 0, 8 ) . '-'
+            . substr ( $chars, 8, 4 ) . '-'
+            . substr ( $chars, 12, 4 ) . '-'
+            . substr ( $chars, 16, 4 ) . '-'
+            . substr ( $chars, 20, 12 );
+        return $uuid ;
+    }
+
 	/**
 	 * Class constructor
 	 *
@@ -110,6 +121,7 @@ class CI_URI {
             {
                 $raw_post_data = file_get_contents('php://input');
                 $request_arr = json_decode($raw_post_data,true);
+                $request_arr['RequestId'] = $this->uuid();
 
                 $action = $request_arr['Action'];
 
