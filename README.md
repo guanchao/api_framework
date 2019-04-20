@@ -14,7 +14,6 @@
 	"Action": "DemoAction",
 	"Version": "2019-01-01",
 	"Language": "zh",
-	"RequestId": "6ef60bec-0242-43af-bb20-270359fb54a7",
 
 	"Field1": "",
 	"Field2": "",
@@ -26,8 +25,7 @@
 （1）Action：接口名，每一个接口名对应框架中的一个PHP控制器类文件  
 （2）Version：版本号  
 （3）Language：支持多国语言（这里也可以在请求头中的Accept-Language设置）  
-（4）RequestId：输入和输出中RequestId都是唯一的并且相等，这个方便后期出现问题时能快速排查定位（备注：这里RequestId是由服务器唯一生成，不是由客户端生成）  
-（5）其他字段：请求的输入数据  
+（4）其他字段：请求的输入数据  
 
 
 ## 标准输出：
@@ -54,7 +52,7 @@
 
 ## 接口实例：
 ### Request：
-curl http://localhost -d '{"Action":"DemoAction","Version":"2019-01-01","Language":"zh","RequestId":"111111111-1111-1111-1111-1111111111","name":"shuwoom","blog":"shuwoom.com"}'
+curl http://localhost -d '{"Action":"DemoAction","Version":"2019-01-01","Language":"zh","name":"shuwoom","blog":"shuwoom.com"}'
 
 ### Response：
 ```
